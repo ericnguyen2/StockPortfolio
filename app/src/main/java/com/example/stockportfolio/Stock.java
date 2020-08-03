@@ -1,8 +1,10 @@
 package com.example.stockportfolio;
 
+import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+@Entity
 public class Stock {
 
     public Stock(String ticker, String quantity, String price) {
@@ -11,9 +13,16 @@ public class Stock {
         this.price =price;
     }
 
+    @PrimaryKey(autoGenerate = true)
     private int id;
+
+    @ColumnInfo(name = "ticker")
     private String ticker;
+
+    @ColumnInfo(name = "quantity")
     private String quantity;
+
+    @ColumnInfo(name = "price")
     private String price;
 
     public int getId() {
