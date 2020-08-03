@@ -3,6 +3,7 @@ package com.example.stockportfolio;
 import java.util.List;
 
 import androidx.room.Dao;
+import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 
@@ -13,4 +14,7 @@ public interface StockDao {
 
     @Insert
     void insertAll(Stock... stocks);
+
+    @Query("DELETE FROM stock")
+    void deleteAll();
 }

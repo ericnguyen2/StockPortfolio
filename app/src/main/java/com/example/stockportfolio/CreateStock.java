@@ -38,6 +38,7 @@ public class CreateStock extends AppCompatActivity {
                 // Save to database
                 Log.d(TAG, "onClick: ticker: " + ticker.getText().toString());
                 db.stockDao().insertAll(new Stock(ticker.getText().toString(), quantity.getText().toString(), price.getText().toString()));
+                //db.stockDao().deleteAll();
                 startActivity(new Intent(CreateStock.this, MainActivity.class));
             }
         });
