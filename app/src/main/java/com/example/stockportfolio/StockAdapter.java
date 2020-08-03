@@ -6,15 +6,21 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class StockAdapter extends RecyclerView.Adapter<StockAdapter.ViewHolder> {
 
-    ArrayList<Stock> stocks;
+    //ArrayList<Stock> stocks;
+    List<Stock> stocks;;
 
-    public StockAdapter(ArrayList<Stock> stocks) {
+    //public StockAdapter(ArrayList<Stock> stocks) {
+    //    this.stocks = stocks;
+    //}
+
+    public StockAdapter(List<Stock> stocks) {
         this.stocks = stocks;
     }
 
