@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         //    stocks.add(stock);
         //}
 
-        AppDatabase db = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "production").allowMainThreadQueries().build();
+        final AppDatabase db = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "production").allowMainThreadQueries().build();
         List<Stock> stocks = db.stockDao().getAllStocks();
 
         recyclerView = findViewById(R.id.recycler_view);

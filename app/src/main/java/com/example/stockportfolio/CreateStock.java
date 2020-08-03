@@ -1,5 +1,6 @@
 package com.example.stockportfolio;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -8,6 +9,7 @@ import android.widget.EditText;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.room.Room;
 
 public class CreateStock extends AppCompatActivity {
 
@@ -28,11 +30,15 @@ public class CreateStock extends AppCompatActivity {
         price = findViewById(R.id.price);
         button = findViewById(R.id.button);
 
+        final AppDatabase db = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "production").allowMainThreadQueries().build();
+
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // TODO: Save to database
+                // Save to database
                 Log.d(TAG, "onClick: ticker: " + ticker.getText().toString());
+                db.stockDao().insertAll(new Stock("AAPL", "50", "400"));
+                startActivity(new Intent(CreateStock.this, MainActivity.class));
             }
         });
     }
