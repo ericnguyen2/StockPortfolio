@@ -12,9 +12,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class StockAdapter extends RecyclerView.Adapter<StockAdapter.ViewHolder> {
 
-    ArrayList<String> stocks;
+    ArrayList<Stock> stocks;
 
-    public StockAdapter(ArrayList<String> stocks) {
+    public StockAdapter(ArrayList<Stock> stocks) {
         this.stocks = stocks;
     }
 
@@ -27,7 +27,9 @@ public class StockAdapter extends RecyclerView.Adapter<StockAdapter.ViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull StockAdapter.ViewHolder holder, int position) {
-        holder.ticker.setText(stocks.get(position));
+        holder.ticker.setText(stocks.get(position).getTicker());
+        holder.quantity.setText(stocks.get(position).getQuantity());
+        holder.price.setText(stocks.get(position).getPrice());
     }
 
     @Override
@@ -37,10 +39,14 @@ public class StockAdapter extends RecyclerView.Adapter<StockAdapter.ViewHolder> 
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public TextView ticker;
+        public TextView quantity;
+        public TextView price;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             ticker = itemView.findViewById(R.id.ticker);
+            quantity = itemView.findViewById(R.id.quantity);
+            price = itemView.findViewById(R.id.price);
         }
     }
 }

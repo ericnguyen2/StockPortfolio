@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
     FloatingActionButton fab;
     RecyclerView recyclerView;
     RecyclerView.Adapter adapter;
-    ArrayList<String> stocks;
+    ArrayList<Stock> stocks;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +37,8 @@ public class MainActivity extends AppCompatActivity {
         stocks = new ArrayList<>();
 
         for (int i = 0; i < 100; i++) {
-            stocks.add("AAPL # " + i);
+            Stock stock = new Stock("AAPL #" + i, "50", "400");
+            stocks.add(stock);
         }
 
         recyclerView = findViewById(R.id.recycler_view);
