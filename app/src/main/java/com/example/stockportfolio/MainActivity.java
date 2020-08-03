@@ -28,7 +28,6 @@ public class MainActivity extends AppCompatActivity {
     FloatingActionButton fab;
     RecyclerView recyclerView;
     RecyclerView.Adapter adapter;
-    //ArrayList<Stock> stocks;
 
     Button button;
 
@@ -38,13 +37,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        //stocks = new ArrayList<>();
-
-        //for (int i = 0; i < 100; i++) {
-        //    Stock stock = new Stock("AAPL #" + i, "50", "400");
-        //    stocks.add(stock);
-        //}
 
         final AppDatabase db = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "production").allowMainThreadQueries().build();
         List<Stock> stocks = db.stockDao().getAllStocks();

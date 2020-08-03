@@ -13,12 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class StockAdapter extends RecyclerView.Adapter<StockAdapter.ViewHolder> {
 
-    //ArrayList<Stock> stocks;
-    List<Stock> stocks;;
-
-    //public StockAdapter(ArrayList<Stock> stocks) {
-    //    this.stocks = stocks;
-    //}
+    List<Stock> stocks;
 
     public StockAdapter(List<Stock> stocks) {
         this.stocks = stocks;
